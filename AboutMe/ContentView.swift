@@ -36,9 +36,14 @@ struct AboutMe: View {
                 .aspectRatio(contentMode: .fit)
                 .padding(.horizontal, 20)
                 
-            Text("Bridget Peterkin\nMajor: Computer Science\nHometown: Omaha, NE")
+            Text("Bridget Peterkin")
+                .font(.title)
                 .multilineTextAlignment(.center)
-            Text("Musical Instruments:\nGuitar, flute, piano, vocals, bass clarinet, violin")
+            Text("Major: Computer Science\nHometown: Omaha, NE")
+                .font(.body)
+                .multilineTextAlignment(.center)
+            Text("\nMusical Instruments:\nGuitar, flute, piano, vocals, bass clarinet, violin")
+                .font(.body)
                 .multilineTextAlignment(.center)
         }
 
@@ -46,12 +51,31 @@ struct AboutMe: View {
 }
 struct MyMusic: View {
     var body: some View {
+        
         VStack {
             Text("My Music")
-            Picker(selection: /*@START_MENU_TOKEN@*/.constant(1)/*@END_MENU_TOKEN@*/, label: /*@START_MENU_TOKEN@*/Text("Picker")/*@END_MENU_TOKEN@*/) {
-                Text("Blackbird").tag(1)
-                Text("Stones&Boulders (Instrumental)").tag(2)
+                .font(.title)
+                .fontWeight(.heavy)
+                .foregroundColor(Color.black)
+
+            HStack {
+                Text("Song:")
+                Picker(selection: /*@START_MENU_TOKEN@*/.constant(1)/*@END_MENU_TOKEN@*/, label: /*@START_MENU_TOKEN@*/Text("Picker")/*@END_MENU_TOKEN@*/) {
+                    Text("Blackbird").tag(1)
+                    Text("Stones&Boulders (Instrumental)").tag(2)
+                    Text("Song 3").tag(3)
+                }
             }
+            
+            Slider(value: /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Value@*/.constant(10)/*@END_MENU_TOKEN@*/)
+                .padding(.horizontal)
+            HStack {
+                Image(systemName: "backward.frame.fill")
+                Image(systemName: "play.fill")
+                Image(systemName: "forward.frame.fill")
+            }
+            
+            
   
         }
 
